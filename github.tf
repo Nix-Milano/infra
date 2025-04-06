@@ -1,3 +1,26 @@
+terraform {
+  encryption {
+    key_provider "pbkdf2" "mykey" {
+      passphrase = var.opentofu_passphrase
+    }
+
+    method "aes_gcm" "new_method" {
+      keys = key_provider.pbkdf2.mykey
+    }
+
+    state {
+      method   = method.aes_gcm.new_method
+      enforced = true
+    }
+  }
+}
+
+variable "opentofu_passphrase" {
+  type        = string
+  description = "Passphrase for encrypting/decrypting the state file."
+  sensitive   = true
+}
+
 variable "github_token" {
   type        = string
   description = "GitHub Personal Access Token with admin:org scope."
