@@ -10,20 +10,18 @@
     , lib
     , ...
     }: {
-      treefmt.config = {
+      treefmt.settings = {
         flakeFormatter = true;
         flakeCheck = true;
+	global.exludes = [
+          "*.png"
+          "*.svg"
+          "*.jpg"
+	  "*.age"	  
+	];
         programs = {
           nixpkgs-fmt.enable = true;
-          typos =
-            {
-              excludes = [
-                "*.png"
-                "*.svg"
-                "*.jpg"
-              ];
-              enable = true;
-            };
+          typos.enable = true;
           terraform.enable = true;
           jsonfmt.enable = true;
         };
