@@ -1,15 +1,15 @@
 terraform {
   encryption {
-    key_provider "pbkdf2" "mykey" {
+    key_provider "pbkdf2" "state-key" {
       passphrase = var.opentofu_passphrase
     }
 
-    method "aes_gcm" "new_method" {
-      keys = key_provider.pbkdf2.mykey
+    method "aes_gcm" "encryption_method" {
+      keys = key_provider.pbkdf2.state-key
     }
 
     state {
-      method   = method.aes_gcm.new_method
+      method   = method.aes_gcm.encryption_method
       enforced = true
     }
   }
