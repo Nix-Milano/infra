@@ -11,13 +11,29 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-github-actions = {
+      url = "github:nix-community/nix-github-actions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } ({ lib, ... }: {
-      systems = lib.systems.flakeExposed;
-      imports = [
-        ./shell
-        ./secrets
-      ];
-    });
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
+      { lib, ... }:
+      {
+        systems = lib.systems.flakeExposed;
+        flake = {
+          githubActions = inputs.nix-github-actions.lib.mkGithubMatrix {
+            checks = inputs.nixpkgs.lib.getAttrs [ "x86_64-linux" "x86_64-darwin" ] inputs.self.checks;
+          };
+        };
+        imports = [
+          ./apps
+          ./checks
+          ./packages
+          ./secrets
+          ./shell
+        ];
+      }
+    );
 }
