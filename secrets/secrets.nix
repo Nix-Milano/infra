@@ -12,4 +12,5 @@ with publicKeys;
   "opentofu_passphrase.age".publicKeys = [ aciceri albertodvp ];
   "github_token.age".publicKeys = [ aciceri albertodvp ];
   "ambrogio_bot_password.age".publicKeys = [ aciceri albertodvp ];
+  "ambrogio_bot_ssh_private_key.age".publicKeys = [ aciceri albertodvp ];
 }
