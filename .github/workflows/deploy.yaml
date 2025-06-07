@@ -11,8 +11,8 @@ jobs:
     steps:
     - run: |
         mkdir -p /home/runner/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > /home/runner/.ssh/id_ed25519
-        chmod 600 /home/runner/.ssh/id_ed25519
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
     - uses: actions/checkout@v4
     - uses: cachix/install-nix-action@v30
     - run: nix run .#tofu-apply-in-workflow
