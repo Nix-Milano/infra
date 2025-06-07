@@ -28,7 +28,6 @@
           };
         };
         imports = [
-          ./apps
           ./checks
           ./packages
           ./secrets
