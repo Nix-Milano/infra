@@ -16,7 +16,6 @@
         flakeCheck = true;
         programs = {
           nixpkgs-fmt.enable = true;
-          typos.enable = true;
           terraform.enable = true;
           jsonfmt.enable = true;
           actionlint.enable = true;
