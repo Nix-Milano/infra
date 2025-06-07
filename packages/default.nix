@@ -1,7 +1,7 @@
 { ... }:
 {
   perSystem =
-    { pkgs, ... }:
+    { pkgs, lib, config, ... }:
     {
       packages = {
         tofu-validate = pkgs.writeShellApplication {
@@ -33,6 +33,12 @@
             tofu apply -auto-approve
           '';
         };
+
+        tofu-apply-in-workflow = pkgs.writeShellScriptBin "tofu-apply-in-workflow"
+        ''
+          source "${lib.getExe config.agenix-shell.installationScript}"
+          ${lib.getExe pkgs.opentofu} apply --auto-approve
+        '';
       };
     };
 }
