@@ -10,15 +10,10 @@
     , lib
     , ...
     }: {
-      treefmt.settings = {
+      treefmt.config = {
+        projectRootFile = ".git/config";
         flakeFormatter = true;
         flakeCheck = true;
-	global.exludes = [
-          "*.png"
-          "*.svg"
-          "*.jpg"
-	  "*.age"	  
-	];
         programs = {
           nixpkgs-fmt.enable = true;
           typos.enable = true;
@@ -26,6 +21,12 @@
           jsonfmt.enable = true;
           actionlint.enable = true;
         };
+        settings.global.excludes = [
+          "*.png"
+          "*.svg"
+          "*.jpg"
+          "*.age"
+        ];
       };
 
       pre-commit = {

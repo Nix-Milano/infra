@@ -16,11 +16,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs =
-    inputs:
+  outputs = inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } (
-      { lib, ... }:
-      {
+      { lib, ... }: {
         systems = lib.systems.flakeExposed;
         flake = {
           githubActions = inputs.nix-github-actions.lib.mkGithubMatrix {
