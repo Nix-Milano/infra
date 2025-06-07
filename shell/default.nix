@@ -39,7 +39,7 @@
       };
 
       devShells.default = pkgs.mkShell {
-        packages = with pkgs; [ opentofu ragenix ];
+        packages = with pkgs; [ opentofu ragenix age ];
         shellHook = ''
           ${config.pre-commit.installationScript}
           source ${lib.getExe config.agenix-shell.installationScript}
