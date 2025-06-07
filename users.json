@@ -15,6 +15,11 @@
     "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAS0g7ekYGKMH9S4StWw8FrYnedXWs3K5oJqz/wWhTA7"
   },
   {
+    "username": "c3n21",
+    "role": "admin",
+    "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEe8GWE28Ay4ZWLGVbCFZ9P+gC/bavqdemUbYcUlrpkI"
+  },
+  {
     "username": "ambrogio-bot",
     "role": "admin",
     "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJtnZ3DbWbrDAMJ9lmy/8Ny6DHNNTk31ec9X3wEXkj/9"
