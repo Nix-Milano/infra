@@ -63,19 +63,14 @@ resource "github_repository" "infra" {
   visibility  = "public"
 }
 
-resource "github_organization_ruleset" "strict-rules" {
+resource "github_repository_ruleset" "strict-rules" {
   name        = "strict-rules"
   target      = "branch" # Targeting branches (not tags)
   enforcement = "active" # Enforced immediately
+  repository  = "infra"
 
   conditions {
-    # Apply ruleset to all repositories
-    repository_name {
-      include = ["~ALL"]
-      exclude = []
-    }
-
-    # Apply to all branches within included repositories
+    # Apply to all branches within the repository
     ref_name {
       include = ["~ALL"]
       exclude = []
