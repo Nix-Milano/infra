@@ -81,7 +81,6 @@ resource "github_repository_ruleset" "strict-rules" {
     creation                = true # Disallow branch creation unless bypass is granted
     deletion                = true # Disallow branch deletion unless bypass is granted
     required_linear_history = true # Disallow merge commits, enforce linear history
-    required_signatures     = true # Only allow signed commits
 
     branch_name_pattern {
       name     = "Main branch naming rule"
