@@ -79,15 +79,14 @@ resource "github_repository_ruleset" "strict-rules" {
 
   rules {
     creation                = true # Disallow branch creation unless bypass is granted
-    update                  = true # Disallow branch updates unless bypass is granted
     deletion                = true # Disallow branch deletion unless bypass is granted
     required_linear_history = true # Disallow merge commits, enforce linear history
     required_signatures     = true # Only allow signed commits
 
     branch_name_pattern {
       name     = "Main branch naming rule"
-      operator = "equals"
-      pattern  = "master" # Only allow branches that start with 'master'
+      operator = "regex"
+      pattern  = "^master$" # Anchored regex for exact match
       negate   = false
     }
 
