@@ -62,3 +62,53 @@ resource "github_repository" "infra" {
   description = "Infrastructure"
   visibility  = "public"
 }
+
+resource "github_organization_ruleset" "strict-rules" {
+  name        = "strict-rules"
+  target      = "branch" # Targeting branches (not tags)
+  enforcement = "active" # Enforced immediately
+
+  conditions {
+    # Apply ruleset to all repositories
+    repository_name {
+      include = ["~ALL"]
+      exclude = []
+    }
+
+    # Apply to all branches within included repositories
+    ref_name {
+      include = ["~ALL"]
+      exclude = []
+    }
+  }
+
+  rules {
+    creation                = true # Disallow branch creation unless bypass is granted
+    update                  = true # Disallow branch updates unless bypass is granted
+    deletion                = true # Disallow branch deletion unless bypass is granted
+    required_linear_history = true # Disallow merge commits, enforce linear history
+    required_signatures     = true # Only allow signed commits
+
+    branch_name_pattern {
+      name     = "Main branch naming rule"
+      operator = "equals"
+      pattern  = "master" # Only allow branches that start with 'master'
+      negate   = false
+    }
+
+    commit_message_pattern {
+      name     = "No WIP in commit messages"
+      operator = "contains"
+      pattern  = "WIP"
+      negate   = true # Disallow commit messages containing "WIP"
+    }
+
+    pull_request {
+      dismiss_stale_reviews_on_push     = true # Require re-review after new commits
+      require_last_push_approval        = true # Last push must be approved by someone else
+      required_approving_review_count   = 1    # Require at least 1 approvals
+      required_review_thread_resolution = true # All conversations must be resolved
+    }
+
+  }
+}
