@@ -42,6 +42,15 @@
               source "${lib.getExe config.agenix-shell.installationScript}"
               ${lib.getExe pkgs.opentofu} init
               ${lib.getExe pkgs.opentofu} apply --auto-approve
+              if ! git diff --cached --exit-code "terraform.tfstate"; then
+                echo "Changes detected in terraform.tfstate, committing..."
+                git add terraform.tfstate
+                git config --global gpg.format ssh
+                git config --global user.signingkey ~/.ssh/id_ed25519.pub
+                git config --global commit.gpgsign true
+                git commit -m "Automatic terraform state update"
+                git push origin master
+              fi
             '';
       };
     };
