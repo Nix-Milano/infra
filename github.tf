@@ -102,6 +102,10 @@ resource "github_repository_ruleset" "strict-rules" {
       required_approving_review_count   = 1    # Require at least 1 approvals
       required_review_thread_resolution = true # All conversations must be resolved
     }
-
+  }
+  bypass_actors {
+    actor_type  = "OrganizationAdmin"
+    actor_id    = 205444294
+    bypass_mode = "always"
   }
 }
