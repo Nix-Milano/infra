@@ -38,5 +38,10 @@
     "username": "ambrogio-bot",
     "role": "admin",
     "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJtnZ3DbWbrDAMJ9lmy/8Ny6DHNNTk31ec9X3wEXkj/9"
+  },
+  {
+    "username": "zarel",
+    "role": "member",
+    "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKFp38ldUYwFQ9JlZ4CTBWWM6S9OmY7yhJSHyMXSASZB"
   }
 ]
