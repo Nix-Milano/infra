@@ -30,6 +30,11 @@
     "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGRdYvoJqwEcpsfq10mgSH3ymX2PIfP6fOuec5Xij5bi"
   },
   {
+    "username": "scalvotux",
+    "role": "member",
+    "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBdl0Nx96418CL0Jvp/1Ok/PksbOTA1gybwvDg0xITvu"
+  },
+  {
     "username": "slavni96",
     "role": "member",
     "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGMILswedl3IPcXPpg5MDne22NzN8UOH7Z5tvnAre7rN"
