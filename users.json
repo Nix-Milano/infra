@@ -35,6 +35,11 @@
     "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGMILswedl3IPcXPpg5MDne22NzN8UOH7Z5tvnAre7rN"
   },
   {
+    "username": "x71c9",
+    "role": "member",
+    "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP/G1LP03z6nRtBNxHLZYkOrQeb53Nf4w3np5tNoNo6Y"
+  },
+  {
     "username": "zarel",
     "role": "member",
     "publicKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKFp38ldUYwFQ9JlZ4CTBWWM6S9OmY7yhJSHyMXSASZB"
