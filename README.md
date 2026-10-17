@@ -4,6 +4,8 @@
 
 # Infra
 
+> **Archived.** The infrastructure of the Nix Milano community is now managed in [nix-pizza/infra](https://github.com/nix-pizza/infra), together with the nix-pizza GitHub organization. This repository's history is merged there.
+
 Welcome to the **infra** repository for the [nix-milano](https://github.com/nix-milano) organization!
 
 This repo contains infrastructure as code (IaC) to manage and automate the configuration of our GitHub organization.
